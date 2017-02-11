@@ -5,8 +5,11 @@
     <dimen name="irish_width">150dp</dimen>
     <dimen name="irish_height">150dp</dimen>
     <dimen name="lep_margin">20dp</dimen>
+    <dimen name="schedule_margin">40dp</dimen>
+    <dimen name="schedule_text">22sp</dimen>
     <dimen name="basketball_margin_top">40dp</dimen>
     <dimen name="notre_dame_size">30dp</dimen>
+    <dimen name="logo_size">100dp</dimen>
 
 
 </resources>
