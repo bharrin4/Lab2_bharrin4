@@ -78,6 +78,7 @@ public class DetailActivity extends Activity {
         Button cameraButton = (Button) findViewById(R.id.cameraButton);
         cameraButton.setText(stringInfo[12]);
         cameraButton.setOnClickListener(new Button.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivity(cameraIntent);

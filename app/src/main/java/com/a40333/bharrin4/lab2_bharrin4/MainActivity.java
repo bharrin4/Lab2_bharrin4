@@ -59,6 +59,7 @@ public class MainActivity extends Activity {
 
         AdapterView.OnItemClickListener clickListener = new AdapterView.OnItemClickListener() {
 
+            @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent mIntent = new Intent(MainActivity.this, DetailActivity.class);
                 mIntent.putExtra("team", arr.get(position));
