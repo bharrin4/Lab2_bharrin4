@@ -4,6 +4,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:text="Saturday, February 11, 6:00pm"
         android:layout_width="match_parent"
@@ -137,6 +138,16 @@
             android:layout_marginEnd="@dimen/button_margin"
             android:layout_marginTop="@dimen/logo_size"
             android:id="@+id/cameraButton" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/acc"
+            android:layout_marginEnd="31dp"
+            android:id="@+id/photo_taken"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/cameraButton"
+            android:layout_marginTop="28dp" />
     </RelativeLayout>
 
 

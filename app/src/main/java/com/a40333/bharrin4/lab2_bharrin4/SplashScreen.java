@@ -1,5 +1,6 @@
 package com.a40333.bharrin4.lab2_bharrin4;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import android.os.Bundle;
  */
 
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreen extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,10 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.a40333.bharrin4.lab2_bharrin4" >
 
+
+
+
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/basketball"
-        android:label="@string/header_name"
+        android:icon="@mipmap/basketball">
+
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-feature android:name="android.hardware.camera" />
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.a40333.bharrin4.lab2_bharrin4.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+    android:label="@string/header_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity android:name=".SplashScreen">
@@ -15,8 +35,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" ></activity>
-        <activity android:name=".DetailActivity"></activity>
+        <activity android:name=".MainActivity" >
+
+        </activity>
+        <activity android:name=".DetailActivity">
+
+        </activity>
     </application>
+
 
 </manifest>
