@@ -53,6 +53,7 @@ public class DetailActivity extends Activity {
 
         ImageView opposingLogo = (ImageView) findViewById(R.id.opposingLogo);
         String mDrawableName = stringInfo.getOpposingLogo();
+        Log.d("logo", mDrawableName);
         int resID = getResources().getIdentifier(mDrawableName, "drawable", getPackageName());
         opposingLogo.setImageResource(resID);
 

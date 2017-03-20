@@ -20,6 +20,7 @@ public class Team implements Serializable {
     String ndRec;
     String ndLogo;
     String camera;
+    String date;
 
     //... define all the strings that you need to fill all the TextViews  of activity_detail.
 
@@ -37,6 +38,7 @@ public class Team implements Serializable {
         setNdRec(gameStats[10]);
         setNdLogo(gameStats[11]);
         setCamera(gameStats[12]);
+        setDate(gameStats[13]);
     }
 
     public void setOpposingName(String opposing_name) {
@@ -141,5 +143,13 @@ public class Team implements Serializable {
 
     public String getCamera() {
         return this.camera;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return this.date;
     }
 }
