@@ -11,5 +11,6 @@
     <color name="textColorPrim">#9575CD </color>
     <color name="windowBackground">#B388FF </color>
     <color name="colorNavigationBar">#311B92</color>
+    <color name="darkPurple">#311B92</color>
 
 </resources>

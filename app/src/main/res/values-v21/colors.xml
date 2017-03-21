@@ -9,5 +9,7 @@
     <color name="black">#000000 </color>
     <color name="colorwindowBackground">#B388FF</color>
     <color name="colorNavigationBar">#4527A0</color>
+    <color name="darkPurple">#311B92</color>
+
 
 </resources>
