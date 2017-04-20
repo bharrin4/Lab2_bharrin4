@@ -18,8 +18,8 @@ public class MyCsvFileReader {
         this.context = applicationContext;
     }
 
-    public ArrayList<Team> readCsvFile(int fileresource) {
-        ArrayList<Team> games = new ArrayList<Team>();
+    public ArrayList<String []> readCsvFile(int fileresource) {
+        ArrayList<String []> games = new ArrayList<String []>();
         InputStream fin = null;
         InputStreamReader isr = null;
         BufferedReader reader = null;
@@ -30,7 +30,7 @@ public class MyCsvFileReader {
             String line = "";
             while ((line = reader.readLine()) != null) {
                 String[] teamInfo = line.split(";");
-                games.add(new Team(teamInfo));
+                games.add(teamInfo);
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -12,13 +12,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Team> al = new ArrayList<Team>();
+    ArrayList<String []> al = new ArrayList<String []>();
+    DatabaseHelper dbHelper;
+    int num = 0;
+    ArrayList<Game> games = new ArrayList<Game>();
+    ArrayList<Team> teams = new ArrayList<Team>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +36,31 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("ND Athletics");
 
+        dbHelper = new DatabaseHelper(getApplicationContext());
+        dbHelper.onUpgrade(dbHelper.getWritableDatabase(), 0, 1);
+
+
         MyCsvFileReader myCsvFileReader = new MyCsvFileReader(getApplicationContext());
         String mDrawableName = "schedule";
         int resID = getResources().getIdentifier(mDrawableName , "raw", getPackageName());
         al = myCsvFileReader.readCsvFile(resID);
 
+        for (String [] temp : al) {
+            String [] gameTemp = {temp[4], temp[0], temp[1], temp[6], temp[7], temp[12]};
+            String [] teamTemp = {temp[4], temp[2], temp[3], temp[5], temp[8], temp[9], temp[10], temp[11], temp[12]};
+            Game game = new Game(gameTemp);
+            Team team = new Team(teamTemp);
+            long tID = dbHelper.insertData(game, team);
+            team.setID(tID);
+            System.out.println("setID = " + tID);
+            //everything is successfully inserted!
+        }
 
 
-        ScheduleAdapter scheduleAdapter = new ScheduleAdapter(getApplicationContext(), al);
+        games = dbHelper.returnGames();
+        teams = dbHelper.returnTeams();
+
+        ScheduleAdapter scheduleAdapter = new ScheduleAdapter(getApplicationContext(), teams);
         ListView scheduleListView = (ListView) findViewById(R.id.scheduleListView);
         scheduleListView.setAdapter(scheduleAdapter);
 
@@ -45,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent mIntent = new Intent(MainActivity.this, DetailActivity.class);
-                mIntent.putExtra("team", al.get(position));
+                mIntent.putExtra("team", teams.get(position));
+                mIntent.putExtra("game", games.get(position));
+                mIntent.putExtra("team_id", id);
+                System.out.println("putExtra Main = " + id);
                 startActivity(mIntent);
             }
         };
@@ -62,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     public String gameSchedule() {
         StringBuilder str = new StringBuilder();
 
-        for (Team s : al)
+        for (Game s : dbHelper.returnGames())
         {
             str.append(s.getOpposingName());
             str.append("\t");
@@ -73,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         String string = str.toString();
-        Log.d("string", string);
         return string;
     }
 
@@ -149,5 +175,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
+
 
 }

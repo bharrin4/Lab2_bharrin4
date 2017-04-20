@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/lep"
-        android:id="@+id/imageButton"
+        android:id="@+id/lep"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
         android:background="@color/dark_blue"

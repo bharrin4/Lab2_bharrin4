@@ -7,38 +7,37 @@ import java.io.Serializable;
  */
 
 public class Team implements Serializable {
-    String gameTime;
-    String gameLocation;
     String opposingName;
     String opposingLogo;
     String opposingMascot;
     String opposingRec;
-    String scoreID;
-    String finalString;
     String ndName;
     String ndMascot;
     String ndRec;
     String ndLogo;
-    String camera;
     String date;
+    Long ID;
 
     //... define all the strings that you need to fill all the TextViews  of activity_detail.
 
     public Team (String [] gameStats) {
-        setOpposingName(gameStats[3]);
-        setOpposingLogo(gameStats[2]);
-        setGameTime(gameStats[0]);
-        setGameLocation(gameStats[1]);
-        setOpposingMascot(gameStats[4]);
-        setOpposingRec(gameStats[5]);
-        setScoreID(gameStats[6]);
-        setFinalString(gameStats[7]);
-        setNdName(gameStats[8]);
-        setNdMascot(gameStats[9]);
-        setNdRec(gameStats[10]);
-        setNdLogo(gameStats[11]);
-        setCamera(gameStats[12]);
-        setDate(gameStats[13]);
+        setOpposingName(gameStats[0]);
+        setOpposingLogo(gameStats[1]);
+        setOpposingMascot(gameStats[2]);
+        setOpposingRec(gameStats[3]);
+        setNdName(gameStats[4]);
+        setNdMascot(gameStats[5]);
+        setNdRec(gameStats[6]);
+        setNdLogo(gameStats[7]);
+        setDate(gameStats[8]);
+    }
+
+    public void setID(Long ID) {
+        this.ID = ID;
+    }
+
+    public Long getID() {
+        return this.ID;
     }
 
     public void setOpposingName(String opposing_name) {
@@ -58,7 +57,7 @@ public class Team implements Serializable {
     }
 
     public void setOpposingMascot(String opposing_mascot) {
-        this.opposingName = opposing_mascot;
+        this.opposingMascot = opposing_mascot;
     }
 
     public String getOpposingMascot() {
@@ -73,38 +72,6 @@ public class Team implements Serializable {
         return this.opposingRec;
     }
 
-    public void setGameTime(String game_time) {
-        this.gameTime = game_time;
-    }
-
-    public String getGameTime() {
-        return this.gameTime;
-    }
-
-    public void setGameLocation(String game_location) {
-        this.gameLocation = game_location;
-    }
-
-    public String getGameLocation() {
-        return this.gameLocation;
-    }
-
-    public void setScoreID(String score_id) {
-        this.scoreID = score_id;
-    }
-
-    public String getScoreID() {
-        return this.scoreID;
-    }
-
-    public void setFinalString(String final_string) {
-        this.finalString = final_string;
-    }
-
-    public String getFinalString() {
-        return this.finalString;
-    }
-
     public void setNdName(String nd_name) {
         this.ndName = nd_name;
     }
@@ -114,7 +81,7 @@ public class Team implements Serializable {
     }
 
     public void setNdMascot(String nd_mascot) {
-        this.ndName = nd_mascot;
+        this.ndMascot = nd_mascot;
     }
 
     public String getNdMascot() {
@@ -135,14 +102,6 @@ public class Team implements Serializable {
 
     public String getNdLogo() {
         return this.ndLogo;
-    }
-
-    public void setCamera(String camera) {
-        this.camera = camera;
-    }
-
-    public String getCamera() {
-        return this.camera;
     }
 
     public void setDate(String date) {
